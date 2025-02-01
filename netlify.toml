@@ -6,7 +6,7 @@
 
 # Production-specific settings
 [context.production.environment]
-NODE_VERSION = "22.x"
+NODE_VERSION = "v22.11.0"
 
 # Development settings
 [dev]
