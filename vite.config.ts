@@ -9,10 +9,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  optimizeDeps: {
-    include: ['dompurify'], // Ensure DOMPurify is pre-bundled
-  },
   build: {
+    outDir: 'dist',  // Ensures the build output goes to 'dist' directory
     sourcemap: false,
     minify: 'terser',
     cssCodeSplit: false,
