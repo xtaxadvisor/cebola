@@ -1,12 +1,14 @@
+# Build settings
 [build]
-command = "npm install && npx vite build"
+  command = "npm install && npx vite build" # Consider changing to "npm run build" if your package.json is properly set up
   publish = "dist"
   functions = "netlify/functions"
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
 
+# Production-specific settings
+[context.production.environment]
+  NODE_VERSION = "14.17.0"
+
+# Development settings
 [dev]
   command = "npm run dev"
   port = 3000
@@ -15,10 +17,18 @@ command = "npm install && npx vite build"
   autoLaunch = true
   framework = "#custom"
 
+# Function settings
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["@aws-sdk/client-ses", "openai", "jose"]
 
+# Redirects
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
