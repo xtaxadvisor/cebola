@@ -5,8 +5,8 @@
   functions = "netlify/functions"
 
 # Production-specific settings
-[context.production.environment]
-  NODE_VERSION = "16.x"
+[c[context.production.environment]
+NODE_VERSION = "16.13.0"
 
 # Development settings
 [dev]
