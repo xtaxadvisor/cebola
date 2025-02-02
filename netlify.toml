@@ -3,6 +3,10 @@ command = "npm run build"
 publish = "dist"
   functions = "netlify/functions"
 
+[build.environment]
+  # Ensure that devDependencies are installed.
+  NPM_CONFIG_PRODUCTION = "false"  
+
 # Production-specific settings
 [context.production.environment]
   NODE_VERSION = "v22.11.0"
