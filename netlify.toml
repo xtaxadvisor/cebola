@@ -1,6 +1,6 @@
 # Build settings
 [build]
-  command = "npm install && npx vite build" # Consider changing to "npm run build" if your package.json is properly set up
+command = "npm install vite@latest --save-dev && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
