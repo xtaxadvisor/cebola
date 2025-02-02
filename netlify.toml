@@ -1,7 +1,6 @@
-# Build settings
 [build]
-command = "npm install vite@latest --save-dev && npm run build"
-  publish = "dist"
+command = "npx vite build"
+publish = "dist"
   functions = "netlify/functions"
 
 # Production-specific settings
