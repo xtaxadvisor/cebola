@@ -33,18 +33,27 @@
     "zustand": "4.5.0"
   },
   "devDependencies": {
-    "@types/node": "20.11.16",
-    "@types/react": "18.2.43",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.43",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.14.0",
     "@typescript-eslint/parser": "6.14.0",
-    "@vitejs/plugin-react": "4.2.1",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "10.4.17",
+    "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
+    "axios-extensions": "^3.1.6",
+    "firebase": "^11.2.0",
     "postcss": "8.4.33",
+    "rollup": "^4.34.0",
+    "socket.io-client": "^4.8.1",
     "tailwindcss": "3.4.1",
     "terser": "5.27.0",
     "typescript": "^5.7.3",
     "vite": "^5.4.14",
     "vitest": "1.2.2"
+  },
+  "resolutions": {
+    "axios": "^1.4.0"
   }
 }
