@@ -6,7 +6,7 @@
 
 # Production-specific settings
 [context.production.environment]
-NODE_VERSION = "v22.11.0"
+  NODE_VERSION = "v22.11.0"
 
 # Development settings
 [dev]
@@ -36,7 +36,8 @@ NODE_VERSION = "v22.11.0"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self' https://*.supabase.co; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.unsplash.com https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co;"
-    Content-Security-Policy = "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://netlify-scripts.netlify.app"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+    # Merged Content-Security-Policy (Fixed Duplicate Issue)
+    Content-Security-Policy = "default-src 'self' https://*.supabase.co; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://netlify-scripts.netlify.app; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.unsplash.com https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co;"
