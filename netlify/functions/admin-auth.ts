@@ -1,3 +1,5 @@
+// netlify/functions/admin-auth.ts
+
 import { Handler } from '@netlify/functions';
 import { handleCors, getCorsHeaders } from './utils/cors';
 import { validateCredentials, generateToken, createAdminUser } from './utils/auth';
@@ -15,15 +17,6 @@ export const handler: Handler = async (event) => {
     if (event.httpMethod !== 'POST') {
       return {
         ...createErrorResponse(405, 'Method not allowed'),
-        headers: corsHeaders
-      };
-    }
-
-    // Validate authorization header
-    const authHeader = event.headers.authorization;
-    if (!authHeader?.startsWith('Bearer ')) {
-      return {
-        ...createErrorResponse(401, 'Missing or invalid authorization'),
         headers: corsHeaders
       };
     }
@@ -65,17 +58,10 @@ export const handler: Handler = async (event) => {
     };
 
   } catch (error) {
-    // Log error in development only
-    if (process.env.NODE_ENV !== 'production') {
-      console.error('Admin auth error:', error);
-    }
+    console.error('Admin auth error:', error);
 
     return {
-      ...createErrorResponse(
-        500,
-        'Internal server error',
-        process.env.NODE_ENV === 'development' ? error : undefined
-      ),
+      ...createErrorResponse(500, 'Internal server error'),
       headers: getCorsHeaders(event)
     };
   }
