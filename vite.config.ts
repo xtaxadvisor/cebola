@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { createRequire } from 'module';
 
-// Create a require function for use in this ES module context
 const require = createRequire(import.meta.url);
 
 export default defineConfig({
@@ -11,7 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      // When "node:events" is imported, resolve it to the installed package
+      // Map "node:events" to the installed events package
       'node:events': require.resolve('events')
     },
   },
@@ -31,6 +30,7 @@ export default defineConfig({
           'vendor-security': ['dompurify', 'zod'],
         },
       },
+      // Mark "node:events" as external to avoid bundling it
       external: ['node:events']
     },
   },
